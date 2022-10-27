@@ -27,6 +27,21 @@ int main() {
 
   cout << "Matirx values are: " << endl;
   printmatrix(mat, 2, 2);
+
+  cout << "Determinant= " << deter << endl; 
+
+  if (deter == 0)
+    cout << "No inverse detected...";
+
+  cout << endl;
+
+  adj[0][0] = mat[1][1];
+  adj[0][1] = mat[0][1] * -1;
+  adj[1][0] = mat[1][0] * -1;
+  adj[1][1] = mat[0][0];
+
+  cout << "The Adjoint Matrix is:" << endl;
+  printmatrix(adj, 2, 2); 
 }
 
 void printmatrix(int mymat[][2], int Num_rows, int Num_cols){
