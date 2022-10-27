@@ -13,8 +13,8 @@ int main() {
   double adj[2][2];
   double Inverse[2][2];
 
-  int a,b,c,d;
-  int deter; 
+  double a,b,c,d;
+  double deter; 
 
   for (int i = 0; i < 2; i++)
     for (int a = 0; a < 2; a++)
@@ -44,21 +44,18 @@ int main() {
 
   cout << endl;
 
-  //adjfind(mat, adj);
-  adj[0][0] = mat[1][1];
-  adj[0][1] = mat[0][1] * -1;
-  adj[1][0] = mat[1][0] * -1;
-  adj[1][1] = mat[0][0];
+  adjfind(mat, adj);
 
-  cout << "The Adjoint Matrix is:" << endl;
   printmatrixdouble(adj, 2, 2); 
 
   //calculate inverse
   cout << "Inverse Matrix: " << endl;
 
-  for (int r = 0; r < 2; r++)
-    for (int c = 0; c < 2; c++)
-      Inverse[r][c] = (adj[r][c] * (1/deter)); 
+  for (int r = 0; r < 2; r++){
+    for (int c = 0; c < 2; c++){
+      Inverse[r][c] = ((adj[r][c]) * (1/deter)); 
+    }
+  }
 
   printmatrixdouble(Inverse, 2, 2);
   
