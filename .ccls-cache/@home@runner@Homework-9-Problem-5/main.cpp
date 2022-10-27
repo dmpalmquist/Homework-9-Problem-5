@@ -24,5 +24,5 @@ int main() {
 
   deter = (( a * d ) - ( b * c ));
 
-  cout <<
+  cout << a << b << c << d;
 }
