@@ -5,11 +5,12 @@
 using namespace std;
 
 void printmatrix(int mymat[][2], int Num_rows, int Num_cols);
-void adjfind(int mat[][2], int adj[][2]);
+void adjfind(double mat[][2], double adj[][2]);
+void printmatrixdouble(double mymat[][2], int Num_rows, int Num_cols);
 
 int main() {
-  int mat[2][2];
-  int adj[2][2];
+  double mat[2][2];
+  double adj[2][2];
   double Inverse[2][2];
 
   int a,b,c,d;
@@ -30,26 +31,37 @@ int main() {
   deter = (( a * d ) - ( b * c ));
 
   cout << "Matirx values are: " << endl;
-  printmatrix(mat, 2, 2);
+  printmatrixdouble(mat, 2, 2);
 
   cout << "Determinant= " << deter << endl; 
 
-  if (deter == 0)
+  if (deter == 0){
     cout << "No inverse detected...";
+    
+    return 0;
+
+    }
 
   cout << endl;
 
-  adjfind(mat, adj);
- /* adj[0][0] = mat[1][1];
+  //adjfind(mat, adj);
+  adj[0][0] = mat[1][1];
   adj[0][1] = mat[0][1] * -1;
   adj[1][0] = mat[1][0] * -1;
   adj[1][1] = mat[0][0];
 
-  cout << "The Adjoint Matrix is:" << endl;*/
-  printmatrix(adj, 2, 2); 
+  cout << "The Adjoint Matrix is:" << endl;
+  printmatrixdouble(adj, 2, 2); 
 
   //calculate inverse
   cout << "Inverse Matrix: " << endl;
+
+  for (int r = 0; r < 2; r++)
+    for (int c = 0; c < 2; c++)
+      Inverse[r][c] = (adj[r][c] * (1/deter)); 
+
+  printmatrixdouble(Inverse, 2, 2);
+  
   
   
 }
@@ -63,8 +75,7 @@ void printmatrix(int mymat[][2], int Num_rows, int Num_cols){
   }
 }
 
-void adjfind(int mat[][2], int adj[][2]){
-  
+void adjfind(double mat[][2], double adj[][2]){
   
   adj[0][0] = mat[1][1];
   adj[0][1] = mat[0][1] * -1;
@@ -72,5 +83,14 @@ void adjfind(int mat[][2], int adj[][2]){
   adj[1][1] = mat[0][0];
 
   cout << "The Adjoint Matrix is:" << endl;
+}
+
+void printmatrixdouble(double mymat[][2], int Num_rows, int Num_cols){
+  for (int r = 0; r < Num_rows; r++){
+    for (int c = 0; c < Num_cols; c++){
+      cout << setw(6) << mymat[r][c];
+    }
+  cout << endl;
+  }
 }
 
