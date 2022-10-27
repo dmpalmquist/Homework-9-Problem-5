@@ -5,6 +5,7 @@
 using namespace std;
 
 void printmatrix(int mymat[][2], int Num_rows, int Num_cols);
+void adjfind(int mat[][2], int adj[][2]);
 
 int main() {
   int mat[2][2];
@@ -17,6 +18,9 @@ int main() {
   for (int i = 0; i < 2; i++)
     for (int a = 0; a < 2; a++)
       cin >> mat[i][a]; 
+
+
+  
 
   a = mat[0][0];
   b = mat[0][1];
@@ -35,13 +39,19 @@ int main() {
 
   cout << endl;
 
-  adj[0][0] = mat[1][1];
+  adjfind(mat, adj);
+ /* adj[0][0] = mat[1][1];
   adj[0][1] = mat[0][1] * -1;
   adj[1][0] = mat[1][0] * -1;
   adj[1][1] = mat[0][0];
 
-  cout << "The Adjoint Matrix is:" << endl;
+  cout << "The Adjoint Matrix is:" << endl;*/
   printmatrix(adj, 2, 2); 
+
+  //calculate inverse
+  cout << "Inverse Matrix: " << endl;
+  
+  
 }
 
 void printmatrix(int mymat[][2], int Num_rows, int Num_cols){
@@ -52,3 +62,15 @@ void printmatrix(int mymat[][2], int Num_rows, int Num_cols){
   cout << endl;
   }
 }
+
+void adjfind(int mat[][2], int adj[][2]){
+  
+  
+  adj[0][0] = mat[1][1];
+  adj[0][1] = mat[0][1] * -1;
+  adj[1][0] = mat[1][0] * -1;
+  adj[1][1] = mat[0][0];
+
+  cout << "The Adjoint Matrix is:" << endl;
+}
+
