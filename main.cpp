@@ -4,6 +4,7 @@
 
 using namespace std;
 
+void printmatrix(int mymat[][2], int Num_rows, int Num_cols);
 
 int main() {
   int mat[2][2];
@@ -24,5 +25,15 @@ int main() {
 
   deter = (( a * d ) - ( b * c ));
 
-  cout << a << b << c << d;
+  cout << "Matirx values are: " << endl;
+  printmatrix(mat, 2, 2);
+}
+
+void printmatrix(int mymat[][2], int Num_rows, int Num_cols){
+  for (int r = 0; r < Num_rows; r++){
+    for (int c = 0; c < Num_cols; c++){
+      cout << setw(6) << mymat[r][c];
+    }
+  cout << endl;
+  }
 }
